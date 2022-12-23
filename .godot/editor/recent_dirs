@@ -1,20 +1,9 @@
+res://
 C:/Users/Ethan/Documents/Fonts
 C:/Users/Ethan/NewNewRolus
-res://Maps
-res://Game
-res://Characters
-res://Services
+res:/maps
 C:/Users/Ethan/Documents/Godot Projects/ShartyShooter/localhost
 C:/Users/Ethan/Documents/Godot Projects/ShartyShooter/WebExport
-res://Menu/Console/components/floating_widget
-res://Menu/Console/components/lynx_window
-res://Menu
-res://HUD
 res://Weapons/WeaponTypes/ShootingWeapon
 res://Weapons
-res://Maps/MapComponents
-res://Fonts
-res://
-res://Environments
-res://Characters/Player
-res://Materials/kenney_prototype_textures/dark
+res:/maps/MapComponents

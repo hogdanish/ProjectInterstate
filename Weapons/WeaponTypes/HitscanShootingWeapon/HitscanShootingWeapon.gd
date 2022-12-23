@@ -10,7 +10,7 @@ extends "res://Assets/Weapons/WeaponTypes/ShootingWeapon/ShootingWeapon.gd"
 
 @onready var bullet_tracer : PackedScene = load("res://Assets/Effects/BulletTracer.tscn")
 
-@onready var flyby_sound : PackedScene = load("res://Assets/Audio/BulletFlyBySoundPlayer.tscn")
+@onready var flyby_sound : PackedScene = load("res://assets/audio/BulletFlyBySoundPlayer.tscn")
 
 @onready var damage_label : PackedScene = load("res://Assets/Weapons/Damage/DamageLabel.tscn")
 

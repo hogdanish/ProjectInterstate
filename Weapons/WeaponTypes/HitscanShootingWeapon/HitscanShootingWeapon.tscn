@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdkm70vqheseo"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dwfqenobpmrkh" path="res://Materials/Weapons/gun_placeholder.png" id="1_gp72o"]
+[ext_resource type="Texture2D" uid="uid://dwfqenobpmrkh" path="res://assets/textures/gun_placeholder.png" id="1_gp72o"]
 [ext_resource type="Script" path="res://Weapons/WeaponTypes/HitscanShootingWeapon/HitscanShootingWeapon.gd" id="2_emjqa"]
 
 [node name="Weapon" type="Node3D"]

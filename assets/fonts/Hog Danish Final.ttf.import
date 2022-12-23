@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://clxe5obqofl0j"
+path="res://.godot/imported/Hog Danish Final.ttf-b833f197d08150a6a157a852f62de7d5.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Hog Danish Final.ttf"
+dest_files=["res://.godot/imported/Hog Danish Final.ttf-b833f197d08150a6a157a852f62de7d5.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=3.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

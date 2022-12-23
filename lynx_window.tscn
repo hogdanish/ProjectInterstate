@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfksrtdwab3ot"]
+
+[ext_resource type="StyleBox" path="res://scenes/menu/Console/components/lynx_window/win_window.tres" id="1_n1vs4"]
+[ext_resource type="Script" path="res://scenes/menu/Console/components/lynx_window/lynx_window.gd" id="2_wsny8"]
+[ext_resource type="StyleBox" path="res://scenes/menu/Console/components/lynx_window/win_title.tres" id="3_fa7dh"]
+[ext_resource type="Texture2D" uid="uid://bbj2qoimcv7vy" path="res://assets/textures/windows/ninepatch/win_close_button.png" id="4_55ybf"]
+[ext_resource type="Texture2D" uid="uid://dlyws6x2sy7n5" path="res://scenes/menu/Console/res/pics/drop_shadow.png" id="5_dmswl"]
+[ext_resource type="Texture2D" uid="uid://cctd4p2wyly50" path="res://scenes/menu/Console/res/pics/icons8-triangle-32.png" id="6_mndon"]
+
+[node name="LynxWindow" type="Panel"]
+custom_minimum_size = Vector2(300, 200)
+offset_left = 161.0
+offset_top = 63.0
+offset_right = 461.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_n1vs4")
+script = ExtResource("2_wsny8")
+metadata/_edit_group_ = true
+
+[node name="Title" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.12
+offset_left = -3.0
+grow_horizontal = 2
+theme_override_styles/normal = ExtResource("3_fa7dh")
+
+[node name="ExitButton" type="TextureButton" parent="Title"]
+texture_filter = 1
+custom_minimum_size = Vector2(29, 15)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("4_55ybf")
+stretch_mode = 3
+
+[node name="Content" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Shadow" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -41.0
+offset_right = 59.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_dmswl")
+patch_margin_left = 59
+patch_margin_top = 41
+patch_margin_right = 59
+patch_margin_bottom = 81
+
+[node name="ResizeButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="ResizeButton"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.501961)
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("6_mndon")
+ignore_texture_size = true

@@ -1,6 +1,0 @@
-[gd_scene load_steps=5 format=3]
-
-[ext_resource type="Texture2D" uid="uid://coww18mnmk6ov" path="res://HUD/BarUnder.png" id="1_5dd0s"]
-[ext_resource type="Script" path="res://BootScreen.gd" id="1_ojgwm"]
-[ext_resource type="Texture2D" uid="uid://dincry5h11qkr" path="res://HUD/BarOver.png" id="2_fiasu"]
-[ext_resource type="Texture2D" uid="uid://8kek6tc3tbhm" path="res://HUD/BarProgress.png" id="3_rtxc6"]

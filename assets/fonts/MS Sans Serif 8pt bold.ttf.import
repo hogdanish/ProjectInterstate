@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bjhg7mgrkqm3s"
+path="res://.godot/imported/MS Sans Serif 8pt bold.ttf-c65694600ba15968a5fd1fdf4cf8d24d.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/MS Sans Serif 8pt bold.ttf"
+dest_files=["res://.godot/imported/MS Sans Serif 8pt bold.ttf-c65694600ba15968a5fd1fdf4cf8d24d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=true
+msdf_pixel_range=12
+msdf_size=64
+allow_system_fallback=false
+force_autohinter=false
+hinting=2
+subpixel_positioning=1
+oversampling=10.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=false
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

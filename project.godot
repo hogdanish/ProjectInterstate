@@ -12,72 +12,82 @@ _global_script_classes=[{
 "base": "CanvasLayer",
 "class": &"Console",
 "language": &"GDScript",
-"path": "res://Menu/Console/Console.gd"
+"path": "res://scenes/menu/console/console.gd"
 }, {
 "base": "RefCounted",
 "class": &"ConsoleConfig",
 "language": &"GDScript",
-"path": "res://Menu/Console/components/config.gd"
+"path": "res://scenes/menu/console/components/config.gd"
 }, {
 "base": "RefCounted",
 "class": &"ConsoleUtils",
 "language": &"GDScript",
-"path": "res://Menu/Console/components/utils.gd"
+"path": "res://scenes/menu/console/components/utils.gd"
 }, {
 "base": "RefCounted",
 "class": &"Damage",
 "language": &"GDScript",
-"path": "res://Weapons/Damage/Damage.gd"
+"path": "res://scenes/_utils/damage/damage.gd"
 }, {
 "base": "Damage",
 "class": &"DamageFall",
 "language": &"GDScript",
-"path": "res://Weapons/Damage/DamageFall.gd"
+"path": "res://scenes/_utils/damage/damage_fall.gd"
 }, {
 "base": "Damage",
 "class": &"DamagePunch",
 "language": &"GDScript",
-"path": "res://Weapons/Damage/DamagePunch.gd"
+"path": "res://scenes/_utils/damage/damage_punch.gd"
 }, {
 "base": "Node3D",
 "class": &"Game",
 "language": &"GDScript",
-"path": "res://Game/Game.gd"
+"path": "res://scenes/game/game.gd"
+}, {
+"base": "ColorRect",
+"class": &"LynxWindow",
+"language": &"GDScript",
+"path": "res://scenes/menu/console/components/lynx_window2/lynx_window.gd"
 }, {
 "base": "Node",
 "class": &"Main",
 "language": &"GDScript",
 "path": "res://Main.gd"
 }, {
+"base": "LynxWindow",
+"class": &"MonitorWidget",
+"language": &"GDScript",
+"path": "res://scenes/menu/console/components/widgets2/monitor_widget.gd"
+}, {
 "base": "PlayerMovement",
 "class": &"Player",
 "language": &"GDScript",
-"path": "res://Characters/Player/Player.gd"
+"path": "res://scenes/entities/player/player.gd"
 }, {
 "base": "Camera3D",
 "class": &"PlayerCamera",
 "language": &"GDScript",
-"path": "res://Characters/Player/PlayerCamera.gd"
+"path": "res://scenes/entities/player/player_camera.gd"
 }, {
 "base": "RefCounted",
 "class": &"PlayerHudUpdate",
 "language": &"GDScript",
-"path": "res://Characters/Player/PlayerHudUpdate.gd"
+"path": "res://scenes/entities/player/player_hud_update.gd"
 }, {
 "base": "PlayerShared",
 "class": &"PlayerInput",
 "language": &"GDScript",
-"path": "res://Characters/Player/PlayerInput.gd"
+"path": "res://scenes/entities/player/player_input.gd"
 }, {
 "base": "PlayerInput",
 "class": &"PlayerMovement",
 "language": &"GDScript",
-"path": "res://Characters/Player/PlayerMovement.gd"
+"path": "res://scenes/entities/player/player_movement.gd"
 }, {
 "base": "CharacterBody3D",
 "class": &"PlayerShared",
 "language": &"GDScript",
-"path": "res://Characters/Player/PlayerShared.gd"
+"path": "res://scenes/entities/player/player_shared.gd"
 }, {
 "base": "Node3D",
 "class": &"Weapon",
@@ -92,7 +102,9 @@ _global_script_class_icons={
 "DamageFall": "",
 "DamagePunch": "",
 "Game": "",
+"LynxWindow": "",
 "Main": "",
+"MonitorWidget": "",
 "Player": "",
 "PlayerCamera": "",
 "PlayerHudUpdate": "",
@@ -105,16 +117,15 @@ _global_script_class_icons={
 [application]
 
 config/name="ShartyShooter"
-run/main_scene="res://HUD/BootScreen/BootScreen.tscn"
+run/main_scene="res://boot.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://Services/Globals.gd"
-Settings="*res://Services/Settings.gd"
-Events="*res://Services/Events.gd"
-ConsoleLogger="*res://Services/ConsoleLogger.tscn"
+Globals="*res://src/Globals.gd"
+Settings="*res://src/Settings.gd"
+Events="*res://src/Events.gd"
 
 [display]
 
@@ -237,7 +248,7 @@ ui_debug={
 }
 toggle_console={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":96,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 
