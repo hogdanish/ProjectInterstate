@@ -1,0 +1,165 @@
+[gd_scene load_steps=17 format=3 uid="uid://wcy0dc2o6cp3"]
+
+[ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_o8gge"]
+[ext_resource type="Script" path="res://Characters/Player/PlayerCamera.gd" id="2_rn3jh"]
+[ext_resource type="Script" path="res://Characters/Player/PlayerSounds.gd" id="3_50s6g"]
+[ext_resource type="AudioStream" uid="uid://vlcin4n87cgt" path="res://Audio/player/jump.wav" id="3_swyqn"]
+[ext_resource type="AudioStream" uid="uid://brsps10johk6y" path="res://Audio/player/charge.wav" id="4_wqinl"]
+[ext_resource type="AudioStream" uid="uid://cn27ga4u0cco6" path="res://Audio/player/grab.wav" id="5_c24o7"]
+[ext_resource type="AudioStream" uid="uid://ddry3fncsssjf" path="res://Audio/player/drop.wav" id="6_nm0oj"]
+[ext_resource type="AudioStream" uid="uid://cyr5isyqxsor3" path="res://Audio/player/release.wav" id="7_0dfyx"]
+[ext_resource type="AudioStream" uid="uid://c0g3lrhhdb8ur" path="res://Audio/player/hurt.wav" id="9_f4n56"]
+[ext_resource type="AudioStream" uid="uid://cypyiujbxbgao" path="res://Audio/player/capped.ogg" id="9_m5qkr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m6n7n"]
+height = 5.0
+radius = 2.0
+
+[sub_resource type="GDScript" id="GDScript_43oq2"]
+script/source = "extends RayCast3D
+
+#func _process(delta):
+#	RaycastManager.coll = get_collider()
+"
+
+[sub_resource type="Animation" id="Animation_6gr40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00393337, -0.616551, -12.0518)]
+}
+
+[sub_resource type="Animation" id="Animation_4ju6u"]
+resource_name = "charge"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(2.73208, 2, -0.5, -0.5),
+"update": 0,
+"values": [Vector3(-0.00393337, -0.616551, -12.0518), Vector3(-0.004, 0.305, -15.59), Vector3(-0.3, -2.855, -9), Vector3(-0.3, -2.855, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_rxglm"]
+resource_name = "shake"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.3, -2.855, -9), Vector3(-0.087, -2.63, -9.162), Vector3(-0.057, -2.704, -9.3), Vector3(-0.023, -2.532, -9.305), Vector3(-0.134, -2.664, -9.139), Vector3(-0.082, -2.583, -8.994), Vector3(-0.438, -2.558, -9.098), Vector3(-0.199, -2.73, -9), Vector3(-0.199, -2.648, -8.947), Vector3(-0.264, -2.588, -9), Vector3(-0.295, -2.656, -9.121), Vector3(-0.17, -2.719, -9.104), Vector3(-0.279, -2.62, -9.211), Vector3(-0.182, -2.55, -9.309), Vector3(-0.181, -2.485, -8.985), Vector3(-0.229, -2.493, -8.822), Vector3(-0.081, -2.618, -8.712), Vector3(-0.199, -2.73, -9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcygp"]
+_data = {
+"RESET": SubResource("Animation_6gr40"),
+"charge": SubResource("Animation_4ju6u"),
+"shake": SubResource("Animation_rxglm")
+}
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.678101, 3.05176e-05, -0.736145)
+collision_layer = 2
+script = ExtResource("1_o8gge")
+
+[node name="top" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("CylinderShape3D_m6n7n")
+
+[node name="bottom" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+shape = SubResource("CylinderShape3D_m6n7n")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("2_rn3jh")
+
+[node name="interaction" type="RayCast3D" parent="camera"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
+target_position = Vector3(0, -1, -12)
+debug_shape_thickness = 1
+script = SubResource("GDScript_43oq2")
+
+[node name="hand" type="Marker3D" parent="camera"]
+transform = Transform3D(0.998537, 0.00292452, 0.0539996, 0, 0.998537, -0.0540788, -0.0540788, 0.0539997, 0.997075, -0.00393337, -0.616551, -12.0518)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="camera/hand"]
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_wcygp")
+}
+
+[node name="joint" type="Generic6DOFJoint3D" parent="camera"]
+node_a = NodePath("../staticbody")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+
+[node name="staticbody" type="StaticBody3D" parent="camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85314, -13.3104)
+
+[node name="audio" type="Node3D" parent="."]
+script = ExtResource("3_50s6g")
+
+[node name="Feet" type="AudioStreamPlayer" parent="audio"]
+volume_db = -80.0
+max_polyphony = 3
+
+[node name="Jump" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("3_swyqn")
+volume_db = -19.0
+
+[node name="Charge" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("4_wqinl")
+volume_db = 10.4
+
+[node name="Grab" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("5_c24o7")
+
+[node name="Drop" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("6_nm0oj")
+
+[node name="Release" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("7_0dfyx")
+
+[node name="Capped" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("9_m5qkr")
+volume_db = 8.0
+
+[node name="Hurt" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("9_f4n56")
+volume_db = -15.0

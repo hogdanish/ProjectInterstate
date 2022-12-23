@@ -1,0 +1,301 @@
+[gd_scene load_steps=20 format=3 uid="uid://ceyq4okocp1bq"]
+
+[ext_resource type="Script" path="res://Menu/Console/Console.gd" id="1_dohs1"]
+[ext_resource type="PackedScene" path="res://Menu/Console/components/resident_logs/resident_logs.tscn" id="2_th8we"]
+[ext_resource type="Script" path="res://Menu/Console/components/lynx_window/lynx_window.gd" id="3_fetjt"]
+[ext_resource type="StyleBox" uid="uid://cc7cywn7yiis3" path="res://Menu/Console/components/lynx_window/win_window.tres" id="3_qh8x5"]
+[ext_resource type="Shader" path="res://Menu/Console/res/shader/frosted_glass.gdshader" id="4_d3keb"]
+[ext_resource type="Texture2D" uid="uid://bbj2qoimcv7vy" path="res://Menu/win_close_button.png" id="5_kes7f"]
+[ext_resource type="StyleBox" uid="uid://yno6qcb8oyom" path="res://Menu/Console/components/lynx_window/win_title.tres" id="5_tyi22"]
+[ext_resource type="PackedScene" uid="uid://bcfn2f7rjd5vl" path="res://Menu/Console/components/console_logs/console_logs.tscn" id="6_5deu3"]
+[ext_resource type="FontFile" uid="uid://u7wnxreffjd0" path="res://Fonts/BIOSfontII.ttf" id="7_0clbg"]
+[ext_resource type="PackedScene" uid="uid://b3jf18wonocnv" path="res://Menu/Console/components/hints_list/hints_list.tscn" id="7_n7sin"]
+[ext_resource type="PackedScene" uid="uid://bme8twac4ick5" path="res://Menu/Console/components/input_field/input_area.tscn" id="7_olqdb"]
+[ext_resource type="Texture2D" uid="uid://dlyws6x2sy7n5" path="res://Menu/Console/res/pics/drop_shadow.png" id="10_3f8ys"]
+[ext_resource type="Script" path="res://Menu/Console/base_instance.gd" id="10_ik817"]
+[ext_resource type="Script" path="res://Menu/Console/widgets_env.gd" id="11_fn3g5"]
+[ext_resource type="Texture2D" uid="uid://cctd4p2wyly50" path="res://Menu/Console/res/pics/icons8-triangle-32.png" id="11_i0lhc"]
+[ext_resource type="Script" path="res://Menu/Console/engine_env.gd" id="12_rbugt"]
+[ext_resource type="Script" path="res://Menu/Console/console_env.gd" id="13_qpcmc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nth2r"]
+resource_local_to_scene = true
+font = ExtResource("7_0clbg")
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsab8"]
+shader = ExtResource("4_d3keb")
+shader_parameter/amount = 2.0
+shader_parameter/noise = 0.1
+shader_parameter/sz = 0.25
+shader_parameter/fancy = null
+
+[node name="Console" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_dohs1")
+pause_when_active = false
+
+[node name="ResidentLogs" parent="." instance=ExtResource("2_th8we")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 0.0
+offset_right = 268.0
+offset_bottom = -269.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Widgets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LynxWindow" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 300)
+offset_top = 703.0
+offset_right = 640.0
+offset_bottom = 1080.0
+theme_override_styles/panel = ExtResource("3_qh8x5")
+script = ExtResource("3_fetjt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Button" parent="LynxWindow"]
+anchors_preset = -1
+anchor_right = 1.004
+offset_right = -2.56006
+offset_bottom = 29.0
+theme_override_styles/normal = ExtResource("5_tyi22")
+theme_override_styles/hover = ExtResource("5_tyi22")
+theme_override_styles/pressed = ExtResource("5_tyi22")
+theme_override_styles/disabled = ExtResource("5_tyi22")
+theme_override_styles/focus = ExtResource("5_tyi22")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" type="ColorRect" parent="LynxWindow/Title"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.180392, 0.196078, 1)
+
+[node name="ExitButton" type="TextureButton" parent="LynxWindow/Title"]
+texture_filter = 1
+custom_minimum_size = Vector2(29, 15)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_kes7f")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LynxWindow/Title"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 94.0
+grow_vertical = 2
+text = "Console"
+label_settings = SubResource("LabelSettings_nth2r")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Content" type="ColorRect" parent="LynxWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 29.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="ColorRect" parent="LynxWindow/Content"]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 25.0
+grow_horizontal = 2
+color = Color(0.239216, 0.258824, 0.278431, 1)
+
+[node name="MenuBar" type="MenuBar" parent="LynxWindow/Content/Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+start_index = 1
+
+[node name="Scene" type="PopupMenu" parent="LynxWindow/Content/Menu/MenuBar"]
+title = "Scenes"
+item_count = 3
+item_0/text = "Item 1"
+item_0/id = 0
+item_0/separator = true
+item_1/text = "Item 2"
+item_1/id = 1
+item_2/text = "Item 3"
+item_2/id = 2
+
+[node name="Project" type="PopupMenu" parent="LynxWindow/Content/Menu/MenuBar"]
+title = "Scenes"
+item_count = 2
+item_0/text = "Item 1"
+item_0/id = 0
+item_1/text = "Item 2"
+item_1/id = 1
+
+[node name="Debug" type="PopupMenu" parent="LynxWindow/Content/Menu/MenuBar"]
+title = "Scenes"
+
+[node name="Editor" type="PopupMenu" parent="LynxWindow/Content/Menu/MenuBar"]
+title = "Scenes"
+
+[node name="Help" type="PopupMenu" parent="LynxWindow/Content/Menu/MenuBar"]
+item_count = 4
+item_0/text = "New Scene"
+item_0/id = 0
+item_1/text = "Open Scene"
+item_1/id = 1
+item_2/text = "Save Scene"
+item_2/id = 2
+item_3/text = "Quit"
+item_3/id = 3
+
+[node name="ConsoleLogs" parent="LynxWindow/Content" instance=ExtResource("6_5deu3")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HintsList" parent="LynxWindow/Content" instance=ExtResource("7_n7sin")]
+offset_bottom = -46.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HelpBar" type="ColorRect" parent="LynxWindow/Content"]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -47.189
+offset_bottom = -27.189
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.180392, 0.32549, 0.403922, 1)
+
+[node name="Label" type="Label" parent="LynxWindow/Content/HelpBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[Help] This is hint!"
+vertical_alignment = 1
+
+[node name="InputArea" parent="LynxWindow/Content" instance=ExtResource("7_olqdb")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="NinePatchRect" parent="LynxWindow"]
+self_modulate = Color(1, 1, 1, 0.501961)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -41.0
+offset_right = 59.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_3f8ys")
+patch_margin_left = 59
+patch_margin_top = 41
+patch_margin_right = 59
+patch_margin_bottom = 81
+metadata/_edit_use_anchors_ = true
+
+[node name="ResizeButton" type="Button" parent="LynxWindow"]
+custom_minimum_size = Vector2(8, 8)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="LynxWindow/ResizeButton"]
+self_modulate = Color(1, 1, 1, 0.501961)
+custom_minimum_size = Vector2(8, 8)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("11_i0lhc")
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" type="ColorRect" parent="LynxWindow"]
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_gsab8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.180392, 0.196078, 1)
+
+[node name="BaseInstance" type="Node" parent="."]
+script = ExtResource("10_ik817")
+
+[node name="widgets" type="Node" parent="."]
+script = ExtResource("11_fn3g5")
+
+[node name="engine" type="Node" parent="."]
+script = ExtResource("12_rbugt")
+
+[node name="Console" type="Node" parent="."]
+script = ExtResource("13_qpcmc")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcfn2f7rjd5vl"]
+
+[ext_resource type="Script" path="res://Menu/Console/components/console_logs/console_logs.gd" id="1_3r4hk"]
+[ext_resource type="FontFile" uid="uid://u7wnxreffjd0" path="res://Fonts/BIOSfontII.ttf" id="3_iljkv"]
+
+[node name="ConsoleLogs" type="MarginContainer"]
+offset_right = 365.0
+offset_bottom = 357.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_3r4hk")
+
+[node name="R" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 357.0
+offset_bottom = 349.0
+theme_override_fonts/normal_font = ExtResource("3_iljkv")
+theme_override_fonts/bold_font = ExtResource("3_iljkv")
+bbcode_enabled = true
+scroll_following = true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://be8kokxf21jey"
+path="res://.godot/imported/bare.png-61f585405760ed769aa7b292ce4c16c4.fontdata"
+
+[deps]
+
+source_file="res://Fonts/bare.png"
+dest_files=["res://.godot/imported/bare.png-61f585405760ed769aa7b292ce4c16c4.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray()
+columns=10
+rows=9
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

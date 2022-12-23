@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdkm70vqheseo"]
+
+[ext_resource type="Texture2D" uid="uid://dwfqenobpmrkh" path="res://Materials/Weapons/gun_placeholder.png" id="1_gp72o"]
+[ext_resource type="Script" path="res://Weapons/WeaponTypes/HitscanShootingWeapon/HitscanShootingWeapon.gd" id="2_emjqa"]
+
+[node name="Weapon" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43293, -1.86892, -3.11904)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_gp72o")
+script = ExtResource("2_emjqa")

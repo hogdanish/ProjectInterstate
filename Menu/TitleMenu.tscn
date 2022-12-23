@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwlpa335loy0x"]
+
+[ext_resource type="Script" path="res://Menu/TitleMenu.gd" id="1_trudq"]
+[ext_resource type="Texture2D" uid="uid://dwuhqtsos350t" path="res://Materials/Textures/Untitled-1.png" id="2_lgw8h"]
+
+[node name="TitleMenu" type="Control" groups=["TitleMenu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trudq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 442.0
+offset_top = -1.0
+offset_right = 1489.0
+offset_bottom = 272.0
+texture = ExtResource("2_lgw8h")
+
+[node name="CenterContainer" type="CenterContainer" parent="." groups=["TitleMenu"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.5
+offset_top = -87.0
+offset_right = 175.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="CenterContainer" groups=["TitleMenu"]]
+unique_name_in_owner = true
+offset_right = 742.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 64
+text = "Let's-a-go! (LIKE MARIO)"
+
+[connection signal="pressed" from="CenterContainer/Start" to="." method="_on_start_pressed"]

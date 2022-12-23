@@ -1,0 +1,14 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://ckxtpqeeedrlp"
+valid=false
+
+[deps]
+
+source_file="res://Fonts/FntOne.fnt"
+[params]
+
+fallbacks=[]
+compress=true

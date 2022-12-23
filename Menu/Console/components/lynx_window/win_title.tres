@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://yno6qcb8oyom"]
+
+[ext_resource type="Texture2D" uid="uid://sv13s47wq0gr" path="res://Menu/win_cons_headr.png" id="1_uoo4a"]
+
+[resource]
+texture = ExtResource("1_uoo4a")
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 7.0
+margin_bottom = 7.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 12, 12)

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsipmfbsgdfov"]
+
+[ext_resource type="Shader" path="res://Menu/Console/res/shader/frosted_glass.gdshader" id="1_u6dxf"]
+
+[resource]
+shader = ExtResource("1_u6dxf")
+shader_parameter/amount = 2.0
+shader_parameter/noise = 0.123
+shader_parameter/sz = 0.25
+shader_parameter/fancy = null

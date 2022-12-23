@@ -1,0 +1,6 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_j2ptf"]
+[ext_resource type="Shader" uid="uid://c10xjvwtdav88" path="res://HUD/DamageOverlay.tres" id="2_em3ph"]
+[ext_resource type="FontFile" uid="uid://clxe5obqofl0j" path="res://Fonts/Hog Danish Final.ttf" id="3_5marv"]
+[ext_resource type="Script" path="res://HUD/fps_counter.gd" id="4_pe502"]

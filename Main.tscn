@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://htqwms8ttxoq"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_ngs78"]
+[ext_resource type="PackedScene" uid="uid://cdocb8nt4aymq" path="res://Maps/_MenuBackgroundMap.tscn" id="2_cey5i"]
+[ext_resource type="PackedScene" uid="uid://cwlpa335loy0x" path="res://Menu/TitleMenu.tscn" id="2_fogk3"]
+[ext_resource type="FontFile" uid="uid://bjhg7mgrkqm3s" path="res://Fonts/MS Sans Serif 8pt bold.ttf" id="5_5s0ir"]
+[ext_resource type="PackedScene" uid="uid://bw1uiw7laf6mg" path="res://Menu/DeathMenu.tscn" id="5_nvasu"]
+[ext_resource type="Theme" uid="uid://b1rphq6l2fbkm" path="res://Menu/win.tres" id="6_bjd2k"]
+[ext_resource type="Texture2D" uid="uid://bi5au0ayx0mst" path="res://Menu/uhoh.png" id="8_asaia"]
+[ext_resource type="Texture2D" uid="uid://dqf5g76eimfos" path="res://Menu/example.png" id="8_u1qvg"]
+[ext_resource type="PackedScene" uid="uid://ceyq4okocp1bq" path="res://Menu/Console/Console.tscn" id="9_6706g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqoo2"]
+content_margin_bottom = 3.0
+bg_color = Color(0, 0, 0.666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qryfq"]
+line_spacing = 0.0
+font = ExtResource("5_5s0ir")
+font_size = 11
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_ngs78")
+menu_background_map = ExtResource("2_cey5i")
+
+[node name="TitleMenu" parent="." instance=ExtResource("2_fogk3")]
+
+[node name="PauseMenu" type="Control" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+anchors_preset = -1
+offset_left = 129.0
+offset_top = 133.0
+offset_right = 530.0
+offset_bottom = 247.0
+theme = ExtResource("6_bjd2k")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Panel"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 399.0
+offset_bottom = 111.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel/MarginContainer"]
+offset_right = 397.0
+offset_bottom = 110.0
+
+[node name="Label2" type="Label" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fqoo2")
+text = " Insert Disk"
+label_settings = SubResource("LabelSettings_qryfq")
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+texture = ExtResource("8_asaia")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PauseMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+theme = ExtResource("6_bjd2k")
+text = "Please insert the disk labeled 'Windows 98 CD-ROM', and then click
+OK."
+
+[node name="Button2" type="Button" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(75, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_bjd2k")
+theme_override_font_sizes/font_size = 13
+text = "OK"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+offset_left = 48.0
+offset_top = 223.0
+offset_right = 49.0
+offset_bottom = 224.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="DeathMenu" parent="." instance=ExtResource("5_nvasu")]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Example" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(329, 193)
+texture = ExtResource("8_u1qvg")
+
+[node name="Example2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(329, 193)
+texture = ExtResource("8_u1qvg")
+
+[node name="Console" parent="." instance=ExtResource("9_6706g")]

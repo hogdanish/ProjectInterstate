@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0l7bsj4kkc31"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_irjam"]
+
+[node name="TestScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ImageTexture_irjam")
