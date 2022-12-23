@@ -1,8 +1,8 @@
 extends Node
 
-enum Focus {MENU, PAUSE, DEATH, GAME}
+enum Focus {MENU, PAUSE, DEATH, GAME, CONSOLE}
 
-var game_state : GameState
+var game : Game
 var main : Main
 var console : Console
 

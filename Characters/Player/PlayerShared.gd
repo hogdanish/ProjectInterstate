@@ -3,7 +3,6 @@ class_name PlayerShared
 
 # Definitions and signals
 signal health_changed
-@onready var game_state : GameState = Globals.game_state
 
 # Health and death
 @export var max_health: int = 100
@@ -12,16 +11,16 @@ signal health_changed
 @onready var health : int
 
 # Anatomy
-@onready var player : CharacterBody3D = get_tree().get_root().get_node("/root/GameState/player")
-@onready var top: CollisionShape3D = get_tree().get_root().get_node("/root/GameState/player/top")
-@onready var bottom: CollisionShape3D = get_tree().get_root().get_node("/root/GameState/player/bottom")
-@onready var camera: Camera3D = get_tree().get_root().get_node("/root/GameState/player/camera")
-@onready var interaction: RayCast3D = get_tree().get_root().get_node("/root/GameState/player/camera/interaction")
-@onready var hand: Marker3D = get_tree().get_root().get_node("/root/GameState/player/camera/hand")
-@onready var animplayer: AnimationPlayer = get_tree().get_root().get_node("/root/GameState/player/camera/hand/AnimationPlayer")
-@onready var joint: Generic6DOFJoint3D = get_tree().get_root().get_node("/root/GameState/player/camera/joint")
-@onready var staticbody: StaticBody3D = get_tree().get_root().get_node("/root/GameState/player/camera/staticbody")
-@onready var feet: AudioStreamPlayer = get_tree().get_root().get_node("/root/GameState/player/audio/Feet")
+@onready var player : CharacterBody3D = get_tree().get_root().get_node("/root/Game/player")
+@onready var top: CollisionShape3D = get_tree().get_root().get_node("/root/Game/player/top")
+@onready var bottom: CollisionShape3D = get_tree().get_root().get_node("/root/Game/player/bottom")
+@onready var camera: Camera3D = get_tree().get_root().get_node("/root/Game/player/camera")
+@onready var interaction: RayCast3D = get_tree().get_root().get_node("/root/Game/player/camera/interaction")
+@onready var hand: Marker3D = get_tree().get_root().get_node("/root/Game/player/camera/hand")
+@onready var animplayer: AnimationPlayer = get_tree().get_root().get_node("/root/Game/player/camera/hand/AnimationPlayer")
+@onready var joint: Generic6DOFJoint3D = get_tree().get_root().get_node("/root/Game/player/camera/joint")
+@onready var staticbody: StaticBody3D = get_tree().get_root().get_node("/root/Game/player/camera/staticbody")
+@onready var feet: AudioStreamPlayer = get_tree().get_root().get_node("/root/Game/player/audio/Feet")
 
 # Settings (temp)
 @export var fov_multiplier := 1.12

@@ -6,6 +6,6 @@ var menu_map : Node3D:
 
 func _on_start_pressed():
 	#set_process(true)
-	if not is_instance_valid(Globals.game_state):
-		Globals.main.spawn_game_state()
+	if not is_instance_valid(Globals.game):
+		Globals.main.spawn_game()
 	#set_process(false)

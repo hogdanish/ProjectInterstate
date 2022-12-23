@@ -5,8 +5,18 @@ func _ready():
 	Globals.player = self
 	health = max_health
 
-# Health and Damage
-	
+
+
+
+
+
+
+
+
+
+
+
+# Health and Damage	
 func _player_hud_update(update: PlayerHudUpdate) -> void:
 	update.player = self
 	player_hud_update.emit(update)
@@ -57,7 +67,7 @@ func die() -> void:
 	
 	alive = false
 	
-	var spawn_transform = game_state.get_spawn_transform()
+	var spawn_transform = Globals.game.get_spawn_transform()
 	
 	Globals.emit_signal("player_dead")
 	

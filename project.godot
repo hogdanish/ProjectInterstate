@@ -40,14 +40,9 @@ _global_script_classes=[{
 "path": "res://Weapons/Damage/DamagePunch.gd"
 }, {
 "base": "Node3D",
-"class": &"GameState",
+"class": &"Game",
 "language": &"GDScript",
-"path": "res://Game/GameState.gd"
-}, {
-"base": "SubViewportContainer",
-"class": &"GameStateContainer",
-"language": &"GDScript",
-"path": "res://Game/GameStateContainer.gd"
+"path": "res://Game/Game.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -96,8 +91,7 @@ _global_script_class_icons={
 "Damage": "",
 "DamageFall": "",
 "DamagePunch": "",
-"GameState": "",
-"GameStateContainer": "",
+"Game": "",
 "Main": "",
 "Player": "",
 "PlayerCamera": "",
@@ -118,7 +112,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://Services/Globals.gd"
-AppState="res://Services/AppState.gd"
 Settings="*res://Services/Settings.gd"
 Events="*res://Services/Events.gd"
 ConsoleLogger="*res://Services/ConsoleLogger.tscn"
