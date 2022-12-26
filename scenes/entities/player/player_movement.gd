@@ -10,13 +10,10 @@ func _ready():
 	Globals.player = self
 
 func _physics_process(delta: float) -> void:
-	if alive:
-		Move(delta)
-		CrouchCamera()
-		GrabbingPhysics()
-		bobshit(delta)
-	else:
-		vel = Vector3.ZERO
+	Move(delta)
+	CrouchCamera()
+	GrabbingPhysics()
+	bobshit(delta)
 
 func GrabbingPhysics():
 	if held_object != null:
@@ -73,9 +70,6 @@ func Move(delta):
 		WalkMove(delta)
 	else:
 		AirMove(delta)
-	
-	if Input.is_action_just_pressed("in_jump"):
-		CheckJumpButton()
 		
 	CheckVelocity()
 	
@@ -91,7 +85,7 @@ func Move(delta):
 
 func Crouch():
 	# dumbest shit i ever coded
-	if crouching and !is_on_floor() and Input.is_action_just_pressed("in_crouch"):
+	if crouching and !is_on_floor() and Input.is_action_just_pressed("move_crouch"):
 		var up = top.get_position(); var down = bottom.get_position();
 		
 		# FUCKING CROUCHJUMPING
@@ -185,7 +179,7 @@ func WalkMove(delta):
 		wishvel *= ply_maxspeed / wishspeed
 		wishspeed = ply_maxspeed
 	
-	Accelerate(wishdir, wishspeed, ply_accelerate, delta)
+	Accelerate(wishdir, wishspeed, target.ply_accelerate, delta)
 	
 	$Top.set_disabled(false)
 	$Bottom.set_disabled(false)
@@ -263,7 +257,7 @@ func NoclipMove(delta):
 	$top.set_disabled(true)
 	$bottom.set_disabled(true)
 	
-func Accelerate(wishdir, wishspeed, accel, delta):
+func Accelerate(wishdir, wishspeed, ply_accelerate, delta):
 	# See if we are changing direction a bit
 	var currentspeed = vel.dot(wishdir)
 	# Reduce wishspeed by the amount of veer.

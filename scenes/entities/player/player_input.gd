@@ -25,9 +25,9 @@ func _input(event):
 #		locked = false
 		
 	#Crouching	
-	if Input.is_action_pressed("in_crouch"):
+	if Input.is_action_pressed("move_crouch"):
 		crouching = true
-	elif Input.is_action_just_released("in_crouch"):
+	elif Input.is_action_just_released("move_crouch"):
 		crouching = false
 	
 	#Sprinting	

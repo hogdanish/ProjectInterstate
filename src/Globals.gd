@@ -1,6 +1,6 @@
 extends Node
 
-enum Focus {MENU, PAUSE, DEATH, GAME, CONSOLE}
+enum Focus {MENU, PAUSE, DEATH, GAME}
 
 signal focus_changed(new: Focus, previous: Focus)
 signal player_loaded(player:CharacterBody3D)
@@ -8,16 +8,16 @@ signal player_dead
 
 var game : Game
 var main : Main
-var console : Console
 
-var player: CharacterBody3D = null:
+var player: Player = null:
 	set(value):
 		if value == player:
 #			print_debug("Attempting to set exisitng current_character; skipping")
 			return
 		player_loaded.emit(player)
 
-var focus: Focus = Focus.MENU:
+# if something new is focused
+var focus: Focus = Focus.MENU: # menu is default
 	set(value):
 		prints("Focus changed to", value, "a.k.a", Focus.keys()[value])
 		if value == self.focus:
@@ -27,17 +27,17 @@ var focus: Focus = Focus.MENU:
 		focus = value
 		focus_changed.emit(focus, focus_previous)
 
-		# make mouse cursor visible only in MENU, DEATH, PAUSE focus
-		if value in [Focus.MENU, Focus.DEATH, Focus.PAUSE]:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if value in [Focus.MENU, Focus.DEATH, Focus.PAUSE]: # if these are focused
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set mouse mode visible
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
-#		# pause the game state when in PAUSE focus
-#		if value in [Focus.PAUSE]:
-#			if Globals.game_state:
-#				pass
-#				#Globals.game_state.pause()
+
+
+		#if value in [Focus.PAUSE]: # if pause is focused
+			#if Globals.game:
+				#Globals.game.get_tree().paused # physically pause game
+		#elif Globals.game:
+			#!Globals.game.get_tree().paused
 				
 
 var focus_previous: Focus = focus

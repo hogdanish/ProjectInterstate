@@ -1,6 +1,10 @@
+State
+StateRegions
+StateAnimation
+Node3D
+Node
 TextureRect
 MarginContainer
-Node3D
 VBoxContainer
 Label
 Panel
@@ -26,7 +30,3 @@ Area3D
 AudioStreamPlayer
 AudioStreamPlayer2D
 AudioStreamPlayer3D
-CSGPolygon3D
-MeshInstance3D
-CollisionShape3D
-Sprite2D

@@ -11,7 +11,7 @@ signal player_spawned
 
 var threaded_map_loading : bool = false # Put in settings eventually
 
-enum GameState {INIT, PLAY, PAUSE, CONSOLE}
+enum GameState {INIT, PLAY, PAUSE}
 
 func _ready():
 	set_process(false) # Disable map loading loop
@@ -79,11 +79,3 @@ func spawn_player():
 	self.add_child(player)
 	player_spawned.emit()
 	player.global_transform = get_spawn_transform()
-
-func unpause():
-	#animator.play("unpause")
-	get_tree().paused = false
-
-func pause():
-	#animator.play("pause")
-	get_tree().paused = true

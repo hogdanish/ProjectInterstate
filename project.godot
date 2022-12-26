@@ -9,21 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "CanvasLayer",
-"class": &"Console",
-"language": &"GDScript",
-"path": "res://scenes/menu/console/console.gd"
-}, {
-"base": "RefCounted",
-"class": &"ConsoleConfig",
-"language": &"GDScript",
-"path": "res://scenes/menu/console/components/config.gd"
-}, {
-"base": "RefCounted",
-"class": &"ConsoleUtils",
-"language": &"GDScript",
-"path": "res://scenes/menu/console/components/utils.gd"
-}, {
 "base": "RefCounted",
 "class": &"Damage",
 "language": &"GDScript",
@@ -44,22 +29,12 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/game/game.gd"
 }, {
-"base": "ColorRect",
-"class": &"LynxWindow",
-"language": &"GDScript",
-"path": "res://scenes/menu/console/components/lynx_window2/lynx_window.gd"
-}, {
 "base": "Node",
 "class": &"Main",
 "language": &"GDScript",
 "path": "res://Main.gd"
 }, {
-"base": "LynxWindow",
-"class": &"MonitorWidget",
-"language": &"GDScript",
-"path": "res://scenes/menu/console/components/widgets2/monitor_widget.gd"
-}, {
-"base": "PlayerMovement",
+"base": "CharacterBody3D",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://scenes/entities/player/player.gd"
@@ -89,36 +64,62 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/entities/player/player_shared.gd"
 }, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://addons/xsm/state.gd"
+}, {
+"base": "State",
+"class": &"StateAnimation",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_animation.gd"
+}, {
+"base": "State",
+"class": &"StateLoop",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_loop.gd"
+}, {
+"base": "State",
+"class": &"StateRand",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_rand.gd"
+}, {
+"base": "State",
+"class": &"StateRegions",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_regions.gd"
+}, {
 "base": "Node3D",
 "class": &"Weapon",
 "language": &"GDScript",
 "path": "res://Weapons/WeaponTypes/Generic/Weapon.gd"
 }]
 _global_script_class_icons={
-"Console": "",
-"ConsoleConfig": "",
-"ConsoleUtils": "",
 "Damage": "",
 "DamageFall": "",
 "DamagePunch": "",
 "Game": "",
-"LynxWindow": "",
 "Main": "",
-"MonitorWidget": "",
 "Player": "",
 "PlayerCamera": "",
 "PlayerHudUpdate": "",
 "PlayerInput": "",
 "PlayerMovement": "",
 "PlayerShared": "",
+"State": "res://addons/xsm/icons/state.png",
+"StateAnimation": "res://addons/xsm/icons/state_animation.png",
+"StateLoop": "res://addons/xsm/icons/state_loop.png",
+"StateRand": "res://addons/xsm/icons/state_rand.png",
+"StateRegions": "res://addons/xsm/icons/state_regions.png",
 "Weapon": ""
 }
 
 [application]
 
-config/name="ShartyShooter"
+config/name="ProjectInterstate"
 run/main_scene="res://boot.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+run/max_fps=119
 config/icon="res://icon.svg"
 
 [autoload]
@@ -129,13 +130,20 @@ Events="*res://src/Events.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/resizable=false
+window/vsync/vsync_mode=0
 window/stretch/mode="canvas_items"
+
+[editor]
+
+script/templates_search_path="res://addons/xsm/templates/"
+movie_writer/fps=119
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/xsm/plugin.cfg")
 
 [filesystem]
 
@@ -186,12 +194,12 @@ in_rclick={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
 ]
 }
-in_crouch={
+crouch={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194326,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
 ]
 }
-in_lshift={
+sprint={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
 ]
@@ -231,7 +239,7 @@ in_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"unicode":0,"echo":false,"script":null)
 ]
 }
-in_jump={
+jump={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"unicode":0,"echo":false,"script":null)
 ]
@@ -248,9 +256,14 @@ ui_debug={
 }
 toggle_console={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":96,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"unicode":0,"echo":false,"script":null)
 ]
 }
+
+[panku]
+
+toggle_console_action="toggle_console"
+pause_when_active=true
 
 [physics]
 

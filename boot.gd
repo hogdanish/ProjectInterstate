@@ -1,6 +1,5 @@
 extends Control
 
-var main_scene : PackedScene
 const main_scene_path := "res://Main.tscn"
 
 var scene_path := main_scene_path # default main scene
@@ -27,7 +26,7 @@ func _ready():
 	printraw("Requesting to load main scene: ")
 	print(main_scene_path)
 
-func _process(delta):
+func _process(_delta):
 	duration = Time.get_ticks_msec()
 	var clamped_duration = duration / (expected_duration if expected_duration != 0 else 5.0)
 
@@ -47,7 +46,7 @@ func _process(delta):
 
 func js_init():
 	var platform = JavaScriptBridge.get_interface("platform")
-	var platform_name = platform.get(platform.name.toString())
+	var _platform_name = platform.get(platform.name.toString())
 
 	print("js_init() successfully finished. Result: ")
 
@@ -63,7 +62,7 @@ func spawn_main_scene() -> void:
 	
 	print ("Attempting to spawn main scene...")
 	var scene = ResourceLoader.load_threaded_get(scene_path)
-	var main_scene = scene.instantiate()
+	var main_scene : Node = scene.instantiate()
 	get_tree().root.add_child(main_scene)
 	if main_scene:
 		Globals.main = main_scene

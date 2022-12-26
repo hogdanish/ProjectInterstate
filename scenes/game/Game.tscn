@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://calnvc324jf6c"]
+[gd_scene load_steps=2 format=3 uid="uid://calnvc324jf6c"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_f2lth"]
-[ext_resource type="PackedScene" uid="uid://bbt0b55vjixyy" path="res://scenes/menu/console/console.tscn" id="2_atheq"]
 
 [node name="Game" type="Node3D" node_paths=PackedStringArray("map")]
+process_mode = 1
 script = ExtResource("1_f2lth")
 player_spawner_path = NodePath("")
 map = NodePath("")
-
-[node name="Console" parent="." instance=ExtResource("2_atheq")]

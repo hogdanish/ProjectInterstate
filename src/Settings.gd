@@ -5,7 +5,7 @@ signal var_changed(var_name, value)
 var settings = {} # current game settings
 
 var settings_dir = "user://settings/"
-var settings_file_path = settings_dir + "settings.liblast"
+var settings_file_path = settings_dir + "settings.projectinterstate"
 var settings_last = {} # copy of last settings for undo
 
 var presets_dir = "res://settings/presets/"
@@ -34,8 +34,8 @@ func _ready() -> void:
 	# ensure the settings directory exists
 	var dir = DirAccess.open(settings_dir)
 	if not dir:
-#		print_debug("Creating settings directory: ",\
-#			error_string(DirAccess.make_dir_recursive_absolute(settings_dir)))
+		print_debug("Creating settings directory: ",\
+			error_string(DirAccess.make_dir_recursive_absolute(settings_dir)))
 		dir = DirAccess.open(settings_dir)
 
 	load_settings()

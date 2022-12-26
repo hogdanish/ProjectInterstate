@@ -72,7 +72,7 @@ func _ready():
 		if bg_map:
 			print("Background map loadeded!")
 
-func _on_focus_changed(new, previous):
+func _on_focus_changed(new, _previous):
 	pass
 	if new == Globals.Focus.PAUSE:
 		$PauseMenu.show()

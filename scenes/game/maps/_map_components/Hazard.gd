@@ -9,5 +9,5 @@ func _on_hazard_body_entered(body):
 		damage.damage_amount = damage_amount
 		damage.trauma_amount = trauma_amount
 		
-		body.hurt(damage)
+		#body.hurt(damage) 
 		#body.camera.add_trauma(trauma_amount)

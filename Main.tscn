@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwscyjtx03478"]
+[gd_scene load_steps=11 format=3 uid="uid://dwscyjtx03478"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_ngs78"]
 [ext_resource type="PackedScene" path="res://scenes/game/maps/_map_components/_menu_background.tscn" id="2_0ejw3"]
@@ -8,7 +8,6 @@
 [ext_resource type="Theme" uid="uid://daoqw7cplxv6e" path="res://assets/ui/win.tres" id="6_bjd2k"]
 [ext_resource type="Texture2D" uid="uid://bi5au0ayx0mst" path="res://assets/textures/uhoh.png" id="8_asaia"]
 [ext_resource type="Texture2D" uid="uid://dqf5g76eimfos" path="res://assets/textures/example.png" id="8_u1qvg"]
-[ext_resource type="PackedScene" uid="uid://bbt0b55vjixyy" path="res://scenes/menu/console/console.tscn" id="9_qdfuh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqoo2"]
 content_margin_bottom = 3.0
@@ -56,6 +55,8 @@ offset_right = 399.0
 offset_bottom = 111.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel/MarginContainer"]
+offset_right = 397.0
+offset_bottom = 110.0
 
 [node name="Label2" type="Label" parent="PauseMenu/Panel/MarginContainer/VBoxContainer"]
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -115,5 +116,3 @@ texture = ExtResource("8_u1qvg")
 visible = false
 position = Vector2(329, 193)
 texture = ExtResource("8_u1qvg")
-
-[node name="Console" parent="." instance=ExtResource("9_qdfuh")]
